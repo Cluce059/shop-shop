@@ -5,11 +5,14 @@ import { useStoreContext } from "../../utils/GlobalState";
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 
-function CategoryMenu({ setCategory }) {
+//{ setCategory }
+//no more need for props w redux state
+function CategoryMenu() {
   //const { data: categoryData } = useQuery(QUERY_CATEGORIES);
   //const categories = categoryData?.categories || [];
-  const [state, dispatch] = useStoreContext();
-
+  //const [state, dispatch] = useStoreContext();
+  const dispatch = useDispatch();
+  const state = useSelector(state => state);
   const { categories } = state;
   
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
